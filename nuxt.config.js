@@ -1,6 +1,17 @@
 const pkg = require('./package')
+const _ = require('lodash')
+const axios = require('axios')
+
+// SEE: https://nuxtjs.org/faq/github-pages
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/play-with-nextjs/'
+  }
+} : {}
 
 module.exports = {
+  ...routerBase,
+
   mode: 'universal',
 
   /*
@@ -57,6 +68,24 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+    }
+  },
+
+  generate: {
+    routes: async () => {
+      const response = await axios.get('https://api.tvmaze.com/shows?page=0')
+      const shows = response.data
+      let routes = _.map(shows, (show) => ({
+        route: `/shows/${show.id}`,
+        payload: show
+      }))
+
+      routes.push({
+        route: '/',
+        payload: shows
+      })
+
+      return routes
     }
   }
 }
