@@ -5,7 +5,7 @@ const axios = require('axios')
 // SEE: https://nuxtjs.org/faq/github-pages
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/play-with-nextjs/'
+    base: '/play-with-nuxtjs/'
   }
 } : {}
 
