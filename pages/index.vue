@@ -7,7 +7,7 @@
         v-for="show in shows"
         :key="show.id"
       >
-        <a :href="`/shows/${show.id}`">{{ show.name }}</a>
+        <nuxt-link :to="`shows/${show.id}`">{{ show.name }}</nuxt-link>
       </li>
     </ul>
   </div>

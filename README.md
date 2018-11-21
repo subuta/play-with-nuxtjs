@@ -23,3 +23,5 @@ $ npm run deploy:gh-pages
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+DEMO: https://subuta.github.io/play-with-nuxtjs/

@@ -8,7 +8,7 @@
     <img :src="show.image.medium">
 
     <p>
-      <a href="/">Back to /</a>
+      <nuxt-link to="/">Back to /</nuxt-link>
     </p>
   </div>
 </template>
